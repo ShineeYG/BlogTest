@@ -47,7 +47,7 @@ public class MainController {
     @ResponseBody
     public List<Blog> findAllMessage() {
         List<Blog> blogList = userService.findAllMessage();
-        System.out.println(blogList);
+//        System.out.println(blogList);
         return blogList;
     }
 
@@ -82,22 +82,20 @@ public class MainController {
             user1.setAddress(address);
             userService.regiest(user1);
             httpServletRequest.getSession().setAttribute("name", name);
-            return "index";
+            return "login";
         } else {
             return "regiest";
         }
     }
 
 
-//    @RequestMapping(value = "/newblog")
-//    public String aaa() {
-//
-//        System.out.println("xadasdasdjvjksdni你倒是跳啊");
-//        return "success";
-//    }
-
-
     //高级查询
-
+    @RequestMapping(value = "/senior")
+    @ResponseBody
+    public List<Blog> senior(@RequestParam("title") String title) {
+        System.out.println("输出info    " + title);
+        List<Blog> userList = userService.senior(title);
+        return userList;
+    }
 
 }

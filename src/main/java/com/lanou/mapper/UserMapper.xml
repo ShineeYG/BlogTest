@@ -26,8 +26,9 @@
     <select id="loginBlog" parameterType="String" resultType="com.lanou.bean.User">
         SELECT * FROM  b_user WHERE name= #{name} and password = #{password};
     </select>
-
-
+    <select id="senior" resultType="com.lanou.bean.Blog">
+        SELECT * FROM b_blog WHERE title LIKE #{title}
+    </select>
 
 
 </mapper>

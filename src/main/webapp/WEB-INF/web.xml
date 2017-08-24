@@ -9,6 +9,22 @@
     <param-value>classpath:SSM-mybatis.xml</param-value>
   </context-param>
   <!--在web.xml 被加载的时候,这个监听器会加载上述context-param中的所有配置文件-->
+
+
+  <filter>
+    <filter-name>SpringEncoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>SpringEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>

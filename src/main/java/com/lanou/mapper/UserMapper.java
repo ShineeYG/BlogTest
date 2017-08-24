@@ -21,4 +21,6 @@ public interface UserMapper {
                    @Param("password") String password);
 
    void regiest(User user);
+
+    List<Blog> senior(String title);
 }
