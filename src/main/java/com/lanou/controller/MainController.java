@@ -23,11 +23,11 @@ public class MainController {
     private UserService userService;
 
 
-//    //跳转界面
-//    @RequestMapping("/")
-//    public String jump() {
-//        return "index";
-//    }
+    //跳转界面
+    @RequestMapping("/index")
+    public String jump() {
+        return "index";
+    }
 
     //跳转到登录界面
     @RequestMapping("login")
@@ -82,7 +82,7 @@ public class MainController {
             user1.setAddress(address);
             userService.regiest(user1);
             httpServletRequest.getSession().setAttribute("name", name);
-            return "index";
+            return "redirect:login";
         } else {
             return "regiest";
         }

@@ -21,4 +21,6 @@ public interface BlogMapper {
 
 
     Blog findContentById(int id);
+
+    List<Blog> findAllMsg();
 }

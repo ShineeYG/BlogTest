@@ -32,11 +32,14 @@ public class BlogServiceImpl implements BlogService {
         pageSize = pageSize == null?5:pagenum;
 
         PageHelper.startPage(pagenum,pageSize);
+        List<Blog> list =  blogMapper.findAllMsg();
 
-        PageInfo<Blog> pageInfo = new PageInfo<Blog>();
-
+        //使用PageInfo 对查询结果进行包装
+        PageInfo<Blog> pageInfo = new PageInfo<Blog>(list);
 
         return pageInfo;
+
+
     }
 
     public Integer deleteBlog(int bid) {
