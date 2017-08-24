@@ -7,11 +7,8 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:SSM-mybatis.xml</param-value>
-    <!--配置多个-->
-    <!--<param-value>classpath:XXX,classpath:XXX</param-value>-->
   </context-param>
-
-  <!--在web.xml被加载的时候,这个监听器会加载上述context-param中的所有配置文件-->
+  <!--在web.xml 被加载的时候,这个监听器会加载上述context-param中的所有配置文件-->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -28,4 +25,6 @@
     <servlet-name>SSMServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+
 </web-app>

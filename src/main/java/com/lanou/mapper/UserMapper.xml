@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.lanou.mapper.user.UserMapper">
+<mapper namespace="com.lanou.mapper.UserMapper">
     <resultMap id="UserMap" type="com.lanou.bean.User">
         <id column="id" property="id" javaType="integer" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR" javaType="String"/>

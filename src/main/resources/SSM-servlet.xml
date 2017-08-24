@@ -1,39 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!--配置springMVC-->
-    <!--mvc的注解驱动-->
-    <mvc:annotation-driven/>
-
-    <!--注解的包扫描-->
-    <!--将这个配置的包下的所有类.都相对于配置好了bean,调用时使用注解-->
-    <!--每个类默认的id是首字母小写形式:例如,Student类的id就是student-->
     <context:component-scan base-package="com.lanou"/>
-
-    <!--默认的资源文件的处理方式-->
-    <!--类似js,css,img等资源文件,本身并不需要springMVC做处理-->
+    <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
-
-    <!--视图解析器-->
-    <!--根据代码的逻辑处理,配置正确的jsp/html等文件路径-->
-    <bean id="jspViewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".jsp"/>
-        <!--/WEB-INF/index.jsp-->
     </bean>
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/**"/>-->
-            <!--<mvc:exclude-mapping path="/loginBlog"/>-->
-            <!--<mvc:exclude-mapping path="/"/>-->
-            <!--<bean class="com.lanou.interceptor.Interceptor"/>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
 
 
 </beans>

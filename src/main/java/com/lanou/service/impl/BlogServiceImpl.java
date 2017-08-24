@@ -3,7 +3,7 @@ package com.lanou.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lanou.bean.Blog;
-import com.lanou.mapper.user.BlogMapper;
+import com.lanou.mapper.BlogMapper;
 import com.lanou.service.BlogService;
 import org.springframework.stereotype.Service;
 

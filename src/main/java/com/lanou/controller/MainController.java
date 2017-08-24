@@ -2,7 +2,6 @@ package com.lanou.controller;
 
 import com.lanou.bean.Blog;
 import com.lanou.bean.User;
-import com.lanou.mapper.user.UserMapper;
 import com.lanou.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +23,11 @@ public class MainController {
     private UserService userService;
 
 
-    //跳转界面
-    @RequestMapping("/")
-    public String jump() {
-        return "index";
-    }
+//    //跳转界面
+//    @RequestMapping("/")
+//    public String jump() {
+//        return "index";
+//    }
 
     //跳转到登录界面
     @RequestMapping("login")
@@ -90,12 +89,12 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/newblog")
-    public String aaa() {
-
-        System.out.println("xadasdasdjvjksdni你倒是跳啊");
-        return "success";
-    }
+//    @RequestMapping(value = "/newblog")
+//    public String aaa() {
+//
+//        System.out.println("xadasdasdjvjksdni你倒是跳啊");
+//        return "success";
+//    }
 
 
     //高级查询

@@ -1,4 +1,4 @@
-package com.lanou.mapper.user;
+package com.lanou.mapper;
 
 import com.lanou.bean.Blog;
 import com.lanou.bean.User;

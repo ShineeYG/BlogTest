@@ -2,11 +2,10 @@ package com.lanou.service.impl;
 
 import com.lanou.bean.Blog;
 import com.lanou.bean.User;
-import com.lanou.mapper.user.UserMapper;
+import com.lanou.mapper.UserMapper;
 import com.lanou.service.UserService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
