@@ -27,6 +27,9 @@
         SELECT * FROM  b_user WHERE name= #{name} and password = #{password};
     </select>
 
+    <select id="findUserById" resultMap="UserMap">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
 
 
 

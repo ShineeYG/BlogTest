@@ -21,4 +21,5 @@ public interface UserMapper {
                    @Param("password") String password);
 
    void regiest(User user);
+   User findUserById(@Param("userId") Integer userId);
 }

@@ -13,7 +13,7 @@ public interface BlogService {
 
     void addBlog(Blog blog);
 
-    List<Blog> findAllBlog();
+    List<Blog> findAllBlog(Blog blog);
 
     PageInfo<Blog> queryPage(Integer pagenum, Integer pageSize);
 

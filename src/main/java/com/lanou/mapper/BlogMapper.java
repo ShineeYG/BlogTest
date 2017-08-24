@@ -14,7 +14,7 @@ public interface BlogMapper {
 
     void addBlog(Blog blog);
 
-    List<Blog> findAllBlog();
+    List<Blog> findAllBlog(Blog blog);
 
 
     Integer deleteBlog(int bid);

@@ -55,12 +55,12 @@ public class MainController {
     //登录界面
     @RequestMapping("/loginBlog")
     public String loginBlog(HttpServletRequest httpServletRequest, @RequestParam("name") String name,
-                            @RequestParam("password") String password) {
-        System.out.println(name + "      +     " + password);
-        boolean b = userService.loginBlog(name, password);
-        if (b) {
+                            @RequestParam("password") String password ) {
+       User user = userService.loginBlog(name, password);
+        if (user !=null) {
             HttpSession session = httpServletRequest.getSession();
             session.setAttribute("name", name);
+            session.setAttribute("loginUser",user);
             return "index";
         } else {
             return "regiest";

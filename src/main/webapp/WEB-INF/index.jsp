@@ -40,7 +40,8 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <div>${sessionScope.get(name)}</div>
+
+                <div>${sessionScope.get("name")}</div>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="${pageContext.request.contextPath}/login">切换用户</a></li>
@@ -67,18 +68,18 @@
 </body>
 <script type="text/javascript">
 
-    function addNewTR(id, title, des, how) {
+    function addNewTR(id,title,des,how) {
 
         var tdleft = $("<td></td>")
-        $("<a href='###'>" + title + "</a>").appendTo(tdleft)
-        var tdz = $("<td></td>").html("<p>" + des + "</p>")
+        $("<a href='#'>"+title+"</a>").appendTo(tdleft).click(getAllContent).attr("id",id)
+        var tdz=$("<td></td>").html("<p>"+des+"</p>")
         var tdright = $("<td></td>")
 
 
         $("<a href='###'>删除</a>").appendTo(tdright).click(delfunc).attr("num", id)
-        var trOb = $("<tr></tr>").append(tdleft).append(tdz).append(tdright).attr("id", "tr" + id)
+        var trOb = $("<tr></tr>").append(tdleft).append(tdz).append(tdright).attr("id","tr"+id)
 
-        if (how == true) {
+        if(how == true){
             $("#tab").prepend(trOb)
         } else {
             $("#tab").append(trOb)
@@ -88,12 +89,12 @@
 
     function getAllBlog() {
         $.ajax({
-            url: "findAllMessage",
-            success: function (result) {
+            url:"findAll",
+            success:function (result) {
                 console.log(result)
-                for (var i = 0; i < result.length; i++) {
+                for(var i=0;i<result.length;i++){
                     var blog = result[i];
-                    addNewTR(blog.id, blog.title, blog.des, 0)
+                    addNewTR(blog.id,blog.title,blog.des,0)
                 }
             }
         })
@@ -105,16 +106,31 @@
 
         var aid = $(this).attr("num")
         $.ajax({
-            url: "/delete",
-            data: {
-                bid: aid
+            url:"/delete",
+            data:{
+                bid:aid
             },
-            success: function (result) {
+            success:function(result){
 
-                $("#tr" + aid).remove()
+                $("#tr"+aid).remove()
             }
         })
     }
+
+    var getAllContent= function (){
+        var id = $(this).attr("id")
+        $.ajax({
+            url:"content",
+            data:{
+                id:id
+            },
+            success:function (result) {
+                window.location.href="/cc?title="+result.title+"&content="+result.content
+            }
+        })
+
+    }
+    getAllContent()
 
 
 </script>

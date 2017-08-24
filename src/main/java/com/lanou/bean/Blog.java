@@ -8,7 +8,7 @@ public class Blog {
     private String title;  //标题
     private String des; //介绍
     private String content; //内容
-    private int useId;
+    private User user;
 
     @Override
     public String toString() {
@@ -17,7 +17,7 @@ public class Blog {
                 ", title='" + title + '\'' +
                 ", des='" + des + '\'' +
                 ", content='" + content + '\'' +
-                ", useId=" + useId +
+                ", user=" + user +
                 '}';
     }
 
@@ -53,12 +53,12 @@ public class Blog {
         this.content = content;
     }
 
-    public int getUseId() {
-        return useId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUseId(int useId) {
-        this.useId = useId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Blog() {

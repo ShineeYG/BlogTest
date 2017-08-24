@@ -11,15 +11,23 @@
 
     </resultMap>
 
+    <resultMap id="Blog2Base" type="Blog">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="des" property="des"/>
+        <result column="content" property="content"/>
+       <association property="user" column="userId" select="com.lanou.mapper.UserMapper.findUserById"/>
+    </resultMap>
+
 
     <insert id="addBlog" useGeneratedKeys="true" keyProperty="id">
-     INSERT INTO b_blog VALUES (NULL ,#{title},#{des},#{content},1)
+     INSERT INTO b_blog VALUES (NULL ,#{title},#{des},#{content},#{user.id})
     </insert>
     <delete id="deleteBlog">
         DELETE FROM b_blog WHERE id=#{bid}
     </delete>
     <select id="findAllBlog" resultMap="BlogBase">
-        SELECT * FROM b_blog
+        SELECT * FROM b_blog WHERE userId=#{user.id}
 
     </select>
     <select id="findContentById" resultMap="BlogBase">

@@ -2,6 +2,7 @@ package com.lanou.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.lanou.bean.Blog;
+import com.lanou.bean.User;
 import com.lanou.service.BlogService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -43,17 +45,20 @@ public class BlogController {
 
 
     @RequestMapping(value = "/add")
-    public String addBlog(Blog blog){
-      blogService.addBlog(blog);
+    public String addBlog(HttpSession session, Blog blog){
+        User user = (User) session.getAttribute("loginUser");
+        blog.setUser(user);
+        blogService.addBlog(blog);
       return "index";
     }
 
     @RequestMapping(value = "/findAll")
     @ResponseBody
-    public List<Blog> findAllBlog(){
-
-       List<Blog> blog =  blogService.findAllBlog();
-       return blog;
+    public List<Blog> findAllBlog(HttpSession session, Blog blog){
+        User user = (User) session.getAttribute("loginUser");
+        blog.setUser(user);
+       List<Blog> blog2 =  blogService.findAllBlog(blog);
+       return  blog2;
     }
 
     @RequestMapping(value = "/pagetest")

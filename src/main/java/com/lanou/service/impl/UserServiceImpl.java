@@ -25,20 +25,17 @@ public class UserServiceImpl implements UserService {
         return allMessage;
     }
 
-    public boolean loginBlog(@Param("name") String name,
-                             @Param("password") String password) {
+    public User loginBlog(@Param("name") String name,
+                          @Param("password") String password) {
         User user1 = userMapper.loginBlog(name, password);
-        if (user1 == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return user1;
     }
 
     public void regiest(User user) {
         System.out.println(user);
         userMapper.regiest(user);
     }
+
 
 
 }

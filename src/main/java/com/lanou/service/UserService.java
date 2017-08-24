@@ -15,8 +15,10 @@ public interface UserService {
 
     List<Blog> findAllMessage();
 
-    boolean loginBlog(@RequestParam("name") String name,
-                      @RequestParam("password") String password);
+    User loginBlog(@RequestParam("name") String name,
+                   @RequestParam("password") String password);
 
     void regiest(User user);
+
+
 }

@@ -23,8 +23,8 @@ public class BlogServiceImpl implements BlogService {
        blogMapper.addBlog(blog);
     }
 
-    public List<Blog> findAllBlog() {
-        return blogMapper.findAllBlog();
+    public List<Blog> findAllBlog(Blog blog) {
+        return blogMapper.findAllBlog(blog);
     }
 
     public PageInfo<Blog> queryPage(Integer pagenum, Integer pageSize) {
@@ -32,9 +32,9 @@ public class BlogServiceImpl implements BlogService {
         pageSize = pageSize == null?5:pagenum;
 
         PageHelper.startPage(pagenum,pageSize);
-        List<Blog> list =  blogMapper.findAllBlog();
 
-        PageInfo<Blog> pageInfo = new PageInfo<Blog>(list);
+        PageInfo<Blog> pageInfo = new PageInfo<Blog>();
+
 
         return pageInfo;
     }
