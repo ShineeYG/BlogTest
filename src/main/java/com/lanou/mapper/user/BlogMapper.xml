@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.mapper.BlogMapper">
+
+
+    <resultMap id="BlogBase" type="Blog">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="des" property="des"/>
+        <result column="content" property="content"/>
+
+    </resultMap>
+
+
+    <insert id="addBlog" useGeneratedKeys="true" keyProperty="id">
+     INSERT INTO b_blog VALUES (NULL ,#{title},#{des},#{content},1)
+    </insert>
+    <delete id="deleteBlog">
+        DELETE FROM b_blog WHERE id=#{bid}
+    </delete>
+    <select id="findAllBlog" resultMap="BlogBase">
+        SELECT * FROM b_blog
+
+    </select>
+    <select id="findContentById" resultMap="BlogBase">
+        SELECT title,content FROM b_blog WHERE id=#{id}
+    </select>
+
+</mapper>
