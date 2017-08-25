@@ -20,5 +20,5 @@ public interface UserService {
 
     void regiest(User user);
 
-
+    List<Blog> senior(String title);
 }

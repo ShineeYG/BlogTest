@@ -36,6 +36,16 @@ public class UserServiceImpl implements UserService {
         userMapper.regiest(user);
     }
 
+    public List<Blog> senior(String title) {
+
+        String titles = "%" + title + "%";
+
+        List<Blog> userList = userMapper.senior(titles);
+        System.out.println("输出查询结果 :  "+userList);
+
+        return userList;
+    }
+
 
 
 }

@@ -22,4 +22,7 @@ public interface UserMapper {
 
    void regiest(User user);
    User findUserById(@Param("userId") Integer userId);
+
+    List<Blog> senior(String title);
+
 }

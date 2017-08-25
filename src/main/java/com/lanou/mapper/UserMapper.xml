@@ -31,6 +31,9 @@
         SELECT * FROM user WHERE id=#{id}
     </select>
 
+    <select id="senior" resultType="com.lanou.bean.Blog">
+                SELECT * FROM b_blog WHERE title LIKE #{title}
+       </select>
 
 
 </mapper>

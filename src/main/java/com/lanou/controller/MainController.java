@@ -99,5 +99,14 @@ public class MainController {
 
     //高级查询
 
+    @RequestMapping(value = "/senior")
+     @ResponseBody
+    public List<Blog> senior(@RequestParam("title") String title) {
+        System.out.println("输出info    " + title);
+        List<Blog> userList = userService.senior(title);
+        return userList;
+    }
+
+
 
 }
